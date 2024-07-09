@@ -12,7 +12,6 @@ import Form, {
 } from "devextreme-react/form";
 import LoadIndicator from "devextreme-react/load-indicator";
 import notify from "devextreme/ui/notify";
-import Link from "next/link";
 
 const SignInForm = () => {
   const formData = useRef({ email: "", password: "" });
@@ -40,7 +39,7 @@ const SignInForm = () => {
         },
       });
     } else {
-      router.replace("/dashboard");
+      window.location.replace("/dashboard");
     }
   };
 
@@ -78,16 +77,6 @@ const SignInForm = () => {
             )}
           </ButtonOptions>
         </ButtonItem>
-        <Item>
-          <div className="flex justify-center">
-            <Link
-              href="/forgot-password"
-              className="text-blue-500 hover:text-blue-800"
-            >
-              Forgot Password?
-            </Link>
-          </div>
-        </Item>
         <ButtonItem>
           <ButtonOptions
             width="100%"
@@ -114,3 +103,4 @@ const passwordEditorOptions = {
 };
 
 export default SignInForm;
+

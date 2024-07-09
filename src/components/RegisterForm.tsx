@@ -20,7 +20,7 @@ const RegisterForm = () => {
     });
 
     if (res.ok) {
-      router.push("/auth/signin");
+      router.push("/signin");
     } else {
       const error = await res.json();
       alert(error.message);

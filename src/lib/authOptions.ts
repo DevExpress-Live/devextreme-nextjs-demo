@@ -34,8 +34,11 @@ const authOptions: AuthOptions = {
   callbacks: {
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.id;
-        session.user.email = token.email;
+        session.user = {
+          ...session.user,
+          id: token.id,
+          email: token.email,
+        };
       }
       return session;
     },
@@ -53,3 +56,4 @@ const authOptions: AuthOptions = {
 };
 
 export default authOptions;
+
