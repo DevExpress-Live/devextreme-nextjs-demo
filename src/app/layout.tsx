@@ -12,9 +12,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const bodyClassName =
+    "dx-viewport dx-device-desktop dx-device-generic dx-theme-material dx-theme-material-typography dx-color-scheme-blue-dark";
+
   return (
     <html lang="en">
-      <body className="dx-viewport">{children}</body>
+      <body className={bodyClassName}>{children}</body>
     </html>
   );
 }
