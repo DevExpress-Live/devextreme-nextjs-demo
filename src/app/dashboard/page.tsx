@@ -1,6 +1,5 @@
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
-import { signOut } from 'next-auth/react';
 
 const DashboardPage = async () => {
   const session = await getServerSession();
@@ -11,7 +10,6 @@ const DashboardPage = async () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      {/* <button onClick={() => signOut()}>Sign Out</button> */}
     </div>
   );
 }

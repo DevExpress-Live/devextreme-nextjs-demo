@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
 import "./globals.css";
-import "devextreme/dist/css/dx.material.blue.light.css";
-
-const roboto = Roboto({ subsets: ["latin"], weight: '400' });
+import "devextreme/dist/css/dx.material.blue.dark.css";
 
 export const metadata: Metadata = {
   title: "Dx Next App",
@@ -17,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className="dx-viewport">{children}</body>
     </html>
   );
 }

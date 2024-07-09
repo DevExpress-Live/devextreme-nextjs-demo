@@ -10,7 +10,7 @@ const SignInPage = async () => {
   }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-3xl mb-4">Sign In</h1>
+      <h3 className="mb-4">Sign In</h3>
       <div className="md:w-[40%] w-[90%]">
         <SignInForm />
       </div>
