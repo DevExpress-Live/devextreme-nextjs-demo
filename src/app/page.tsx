@@ -15,7 +15,9 @@ const Page = async () => {
           <SignOutButton />
         </div>
         <Link href="/dashboard">
-          <span className="text-xl px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-900">Dashboard</span>
+          <span className="text-xl px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-900">
+            Dashboard
+          </span>
         </Link>
       </div>
     );
@@ -27,10 +29,14 @@ const Page = async () => {
       <h4 className="mb-8">Your next great app starts here.</h4>
       <div className="flex space-x-4">
         <Link href="/signin">
-          <span className="text-xl px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">Sign In</span>
+          <span className="text-xl px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">
+            Sign In
+          </span>
         </Link>
         <Link href="/dashboard">
-          <span className="text-xl px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-900">Dashboard</span>
+          <span className="text-xl px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-900">
+            Dashboard
+          </span>
         </Link>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import SignInForm from '@/components/SignInForm';
+import SignInForm from "@/components/SignInForm";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 const SignInPage = async () => {
   const session = await getServerSession(authOptions);
   if (session) {
-    redirect('/dashboard');
+    redirect("/dashboard");
   }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">

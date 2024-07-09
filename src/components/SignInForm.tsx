@@ -1,7 +1,7 @@
 "use client";
-import { useRef, useState } from 'react';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRef, useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Form, {
   Item,
   Label,
@@ -12,7 +12,7 @@ import Form, {
 } from "devextreme-react/form";
 import LoadIndicator from "devextreme-react/load-indicator";
 import notify from "devextreme/ui/notify";
-import Link from 'next/link';
+import Link from "next/link";
 
 const SignInForm = () => {
   const formData = useRef({ email: "", password: "" });
@@ -22,10 +22,10 @@ const SignInForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const result = await signIn('credentials', {
+    const result = await signIn("credentials", {
       redirect: false,
       email: formData.current.email,
-      password: formData.current.password
+      password: formData.current.password,
     });
 
     if (result?.error) {
@@ -40,7 +40,7 @@ const SignInForm = () => {
         },
       });
     } else {
-      router.replace('/dashboard');
+      router.replace("/dashboard");
     }
   };
 
@@ -100,7 +100,7 @@ const SignInForm = () => {
       </Form>
     </form>
   );
-}
+};
 
 const emailEditorOptions = {
   stylingMode: "filled",
@@ -114,4 +114,3 @@ const passwordEditorOptions = {
 };
 
 export default SignInForm;
-

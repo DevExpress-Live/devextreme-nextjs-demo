@@ -1,8 +1,8 @@
 "use client";
-import React, { FC, useMemo } from 'react';
-import { signOut } from 'next-auth/react';
+import React, { FC, useMemo } from "react";
+import { signOut } from "next-auth/react";
 import { Toolbar } from "devextreme-react/toolbar";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -64,10 +64,8 @@ const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
   return (
     <div className="dashboard-layout">
       <Toolbar items={toolbarItems} className="shadow-md" />
-      <div>
-        {children}
-      </div>
-    </div >
+      <div>{children}</div>
+    </div>
   );
 };
 

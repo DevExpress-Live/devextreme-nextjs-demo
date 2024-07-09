@@ -1,10 +1,10 @@
-import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 const ProfilePage = async () => {
   const session = await getServerSession();
   if (!session) {
-    redirect('/signin');
+    redirect("/signin");
   }
 
   return (
@@ -13,7 +13,6 @@ const ProfilePage = async () => {
       <p>Hello {session.user.name}</p>
     </div>
   );
-}
+};
 
 export default ProfilePage;
-
