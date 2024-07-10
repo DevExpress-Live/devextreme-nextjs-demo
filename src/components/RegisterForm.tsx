@@ -1,11 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/navigation";
+import Form, {
+  Item,
+  Label,
+  ButtonItem,
+  ButtonOptions,
+  RequiredRule,
+  EmailRule,
+} from "devextreme-react/form";
 
 const RegisterForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const formData = useRef({ email: "", password: "", name: "" });
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -16,7 +22,7 @@ const RegisterForm = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password, name }),
+      body: JSON.stringify({ email: formData.current.email, password: formData.current.password, name: formData.current.name }),
     });
 
     if (res.ok) {
@@ -29,36 +35,61 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Email
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Register</button>
+      <Form
+        formData={formData.current}
+        showColonAfterLabel={false}
+        showRequiredMark={false}
+      >
+        <Item
+          dataField="name"
+          editorType="dxTextBox"
+          editorOptions={nameEditorOptions}
+        >
+          <RequiredRule message="Name is required" />
+          <Label visible={false} />
+        </Item>
+        <Item
+          dataField="email"
+          editorType="dxTextBox"
+          editorOptions={emailEditorOptions}
+        >
+          <RequiredRule message="Email is required" />
+          <EmailRule message="Email is invalid" />
+          <Label visible={false} />
+        </Item>
+        <Item
+          dataField="password"
+          editorType="dxTextBox"
+          editorOptions={passwordEditorOptions}
+        >
+          <RequiredRule message="Password is required" />
+          <Label visible={false} />
+        </Item>
+        <ButtonItem>
+          <ButtonOptions width="100%" type="default" useSubmitBehavior={true}>
+            Register
+          </ButtonOptions>
+        </ButtonItem>
+      </Form>
     </form>
-  );
+  )
+};
+
+const nameEditorOptions = {
+  stylingMode: "filled",
+  placeholder: "Name",
+  mode: "text",
+};
+
+const emailEditorOptions = {
+  stylingMode: "filled",
+  placeholder: "Email",
+  mode: "email",
+};
+const passwordEditorOptions = {
+  stylingMode: "filled",
+  placeholder: "Password",
+  mode: "password",
 };
 
 export default RegisterForm;
