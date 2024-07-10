@@ -22,7 +22,11 @@ const RegisterForm = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: formData.current.email, password: formData.current.password, name: formData.current.name }),
+      body: JSON.stringify({
+        email: formData.current.email,
+        password: formData.current.password,
+        name: formData.current.name,
+      }),
     });
 
     if (res.ok) {
@@ -72,7 +76,7 @@ const RegisterForm = () => {
         </ButtonItem>
       </Form>
     </form>
-  )
+  );
 };
 
 const nameEditorOptions = {

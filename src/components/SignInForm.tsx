@@ -103,4 +103,3 @@ const passwordEditorOptions = {
 };
 
 export default SignInForm;
-
